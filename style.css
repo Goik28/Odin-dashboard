@@ -12,9 +12,10 @@ a:visited {
 
 body {
     display: grid;
-    grid-template-rows: 225px 1fr;
+    grid-template-rows: 215px 1fr;
     grid-template-columns: 350px 1fr;
     height: 100vh;
+    width: 100%;
 }
 
 /*#region Sidebar*/
@@ -25,7 +26,7 @@ body {
     flex-direction: column;
     background-color: indigo;
     color: whitesmoke;
-    padding: 25px;
+    padding: 20px;
     height: auto;
 }
 
@@ -58,14 +59,15 @@ body {
     margin-right: 5%;
 }
 
-.sidebar_Mid > a > li > div > img,
-.sidebar_Bot > a > li > div > img{
+.sidebar_Mid>a>li>div>img,
+.sidebar_Bot>a>li>div>img {
     width: 32px;
 }
 
 .sidebar_Icon {
     filter: invert(100%);
 }
+
 /*#endregion */
 
 /*#region Header*/
@@ -73,10 +75,10 @@ body {
     grid-row: 1 / 2;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    padding: 25px;
+    padding: 20px;
     position: relative;
     z-index: 1;
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .header_Top {
@@ -132,7 +134,7 @@ body {
     justify-content: center;
 }
 
-.header_Bot_Left > div{
+.header_Bot_Left>div {
     width: 80px;
     height: 80px;
 }
@@ -147,12 +149,12 @@ body {
     margin: 0 20px;
 }
 
-.profile_Greetings{
+.profile_Greetings {
     font-size: 0.5em;
     margin-bottom: 5px;
 }
 
-.header_Bot_Right{
+.header_Bot_Right {
     display: flex;
     align-items: center;
 }
@@ -163,7 +165,7 @@ body {
     gap: 30px
 }
 
-.header_Button{
+.header_Button {
     color: whitesmoke;
     background-color: indigo;
     height: 50px;
@@ -173,97 +175,139 @@ body {
     font-size: 1em;
     font-weight: 900;
 }
+
 /*#endregion*/
 
 main {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     display: grid;
-    grid-template: 1fr 50px / 1fr 300px;
+    grid-template: 1fr 50px / 1fr 350px;
     background-color: #c7d2fe;
 }
 
 .project_Session {
     padding: 0 25px;
-    display: grid;
-    grid-template-rows: 90px 1fr;
+    display: flex;
+    flex-direction: column;
 }
 
 .cards_Container {
+    flex: 1 1 auto;
     display: grid;
-    row-gap: 30px;
-    column-gap: 30px;
+    grid-template-columns: repeat(auto-fit, 450px);
+    grid-template-rows: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 30px;
 }
 
-.project_Session > h2{
-    margin: 40px 0 20px 0;
-}
-
-.project_Card {
-    width: 360px;
-    height: 185px;
-    padding: 20px;
-    background-color: whitesmoke;
-    border-width: 0 0 0 10px;
-    border-style: solid;
-    border-color: aquamarine;
-    border-radius: 10px;
-    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0,0,0,0.1);
-}
-
-.card_Buttons{
-    display: flex;
-}
-
-.right_Session {
-    padding: 0 25px 0 0px;
-    display: grid;
-    grid-template-rows: 90px 1fr 90px 1fr;
-}
-
-.right_Session > h2{
+.project_Session>h2 {
     margin: 40px 0 20px 0;
     height: 30px;
 }
 
-.announcements_Container{
-    padding: 10px;
+.project_Card {
+    padding: 20px;
     background-color: whitesmoke;
-    height: fit-content;
-    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-width: 0 0 0 10px;
+    border-style: solid;
+    border-color: aquamarine;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.1);
+}
+
+.project_Card_Text>p {
+    color: gray;
+}
+
+.card_Buttons {
+    display: flex;
+    align-self: flex-end;
+    width: 40%;
+    justify-content: space-between;
+}
+
+/*#region Right Session*/
+.right_Session {
+    padding: 0 25px 0 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right_Session>div>h2 {
+    margin: 40px 0 20px 0;
+    height: 30px;
+}
+
+.announcements_Container {
+    padding: 25px;
+    background-color: whitesmoke;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.announcements_Container>:last-child {
+    border-width: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.announcement_Card {
+    font-size: 0.8em;
+    margin: 0 0 15px 0;
+    padding: 0 0 15px 0;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: lightgray;
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.025);
+}
+
+.announcement_Card>p {
+    color: gray;
+}
+
+.trending_User_Container {
+    padding: 25px;
+    background-color: whitesmoke;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 
-.trending_User_Container{
-    padding: 10px;
-    background-color: whitesmoke;
-    height: fit-content;
-    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.trending_User_Card{
+.trending_User_Card {
     display: flex;
     align-items: center;
+    margin: 10px 0;
 }
 
-.profile_Box{
+.trending_User_Container>:first-child{
+    margin-top: 0;
+}
+
+.trending_User_Container>:last-child {
+    margin-bottom: 0;
+}
+
+.profile_Box {
     display: flex;
     flex-direction: column;
     padding-left: 25px;
 }
 
-.profile_User{
+.profile_User {
     font-weight: 700;
 }
+/*#endregion*/
+
 /*#region Accent colors for profile pictures */
 #user_1 {
     background-color: aquamarine;
